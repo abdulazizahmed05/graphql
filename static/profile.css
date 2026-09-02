@@ -31,7 +31,6 @@ body.modal-open {
 
 .nav-user-logout {
   display: flex;
-  flex-direction: horizontal;
   gap: 3px;
 }
 
@@ -414,7 +413,7 @@ body.modal-open {
   color: #958888;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
   .nav-bar {
     padding: 15px 6%;
   }
@@ -430,6 +429,7 @@ body.modal-open {
 
   .latest-container {
     flex-direction: column;
+    gap: 20px;
   }
 
   .overview-container {
@@ -437,24 +437,14 @@ body.modal-open {
   }
 
   .audit-details {
-    flex-direction: column;
-
-    gap: 15px;
-  }
-
-  .details-info {
-    grid-template-columns: 1fr;
+    justify-content: space-around;
+    gap: 10px;
   }
 
   .identification-container,
   .overview-container,
   .graph-container {
     width: 94%;
-  }
-
-  .identification-container,
-  .overview-container,
-  .graph-container {
     padding: 20px;
   }
 }
