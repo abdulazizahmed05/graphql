@@ -13,7 +13,7 @@ body {
   color: #d8d3d3e5;
   background-image:
     linear-gradient(rgba(5, 5, 5, 0.45), rgba(5, 5, 5, 0.223)),
-    url("static/assets/background.png");
+    url("assets/background.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
