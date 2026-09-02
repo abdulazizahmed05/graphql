@@ -1,0 +1,133 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  min-height: 100vh;
+  color: #d8d3d3e5;
+  background-image:
+    linear-gradient(rgba(5, 5, 5, 0.45), rgba(5, 5, 5, 0.223)),
+    url("/static/assets/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.brand-logo {
+  object-fit: contain;
+  width: 150px;
+  height: auto;
+  margin-bottom: 25px;
+  filter: drop-shadow(0 0 11px rgba(150, 20, 20, 0.6));
+}
+
+.login-container {
+  width: min(750px, 90%);
+  padding: 30px;
+  border: 1px solid rgba(150, 20, 20, 0.2);
+  border-radius: 8px;
+  background: rgba(12, 12, 12, 0.1);
+  box-shadow:
+    0 0 10px rgba(145, 2, 2, 0.2),
+    0 20px 100px rgba(32, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+}
+
+.login-container h1 {
+  margin: 0;
+  text-align: center;
+  font-family: Impact;
+  font-size: clamp(2rem, 5vw, 3rem);
+  letter-spacing: 2px;
+  color: #9b1717;
+  text-shadow:
+    0 0 8px rgba(170, 0, 0, 0.45),
+    2px 2px 0 #220404;
+}
+
+#subtitle {
+  margin: 10px 0 30px 0;
+  text-align: center;
+  font-family: fantasy;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: #a89b9b;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#login-form label {
+  margin: 18px 0 8px 10px;
+  font-family: fantasy;
+  font-size: 1.2rem;
+  color: #b9a8a8;
+}
+
+#login-form input {
+  text-transform: uppercase;
+  width: 100%;
+  padding: 14px 16px;
+  font-family: Impact;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: #e5dddd;
+  background: rgba(5, 5, 5, 0.752);
+  border: 1px solid #5f3030;
+  border-radius: 8px;
+  outline: red;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+#login-form input:focus {
+  border-color: rgba(150, 20, 20, 0.2);
+  box-shadow:
+    0 0 0 2px rgba(181, 18, 18, 0.15),
+    0 0 12px rgba(181, 18, 18, 0.2);
+}
+
+#login-button {
+  margin-top: 30px;
+  padding: 15px;
+  font-family: Impact;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  color: #e9dddd;
+  background: linear-gradient(120deg, #b01111bc, #310303);
+  border: 1px solid #c22929;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+#login-button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #b01111bc, #310303);
+  box-shadow: 0 0 18px rgba(180, 0, 0, 0.4);
+}
+
+#login-button:active {
+  transform: translateY(1px);
+}
+
+#error {
+  min-height: 20px;
+  margin: 16px 0 0;
+  text-align: center;
+  font-family: fantasy;
+  font-size: 0.9rem;
+  color: #d94343;
+}

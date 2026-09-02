@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/profile.css" />
+    <link rel="icon" href="static/assets/favicon.png" />
+    <title>GraphQL - Profile</title>
+  </head>
+  <body>
+    <!--navbar-->
+    <header class="nav-bar">
+      <div class="nav-user-logout">
+        <span id="nav-username">-</span>
+        <span id="nav-user-id">-</span>
+      </div>
+      <button id="logout-button">
+        
+         ESCAPE
+      </button>
+    </header>
+    <img
+      class="brand-logo"
+      src="static/assets/bos-logo.png"
+      alt="Brand of Sacrifice"
+    />
+    <!--title + aura txt-->
+    <section class="profile-title">
+      <h1>THE REBOOT ECLIPSE</h1>
+      <p>STRUGGLE, ENDURE, CONTEND</p>
+    </section>
+
+    <!--basic identification-->
+    <section class="identification-container">
+      <!--name + level-->
+      <div class="profile-heading">
+        <div class="name-container">
+          <h2 id="full-name">-</h2>
+          <button id="view-details-button">VIEW DETAILS</button>
+        </div>
+        <div class="level-container">
+          <p class="label">LEVEL</p>
+          <h2 id="level">-</h2>
+        </div>
+      </div>
+      <hr />
+      <!--user's latest completion-->
+      <div class="latest-container">
+        <p>
+          <span class="label">LATEST COMPLETION</span>
+          <span id="latest-completion-name">-</span>
+        </p>
+        <p>
+          <span id="latest-completion-type">-</span>
+          <span id="latest-completion-date">-</span>
+        </p>
+      </div>
+    </section>
+
+    <!--audit + xp + pass/fail chart-->
+    <section class="overview-container">
+      <!--left side (audit + xp)-->
+      <div class="overview-left">
+        <!--audit ratio-->
+        <div class="stat-container">
+          <p class="label">AUDIT RATIO</p>
+          <h2 id="audit-ratio">-</h2>
+          <div class="audit-details">
+            <p>
+              DONE
+              <span id="audits-done">-</span>
+            </p>
+            <p>
+              RECEIVED
+              <span id="audits-received">-</span>
+            </p>
+          </div>
+        </div>
+        <!--total xp-->
+        <div class="stat-container">
+          <p class="label">TOTAL XP</p>
+          <h2 id="total-xp">-</h2>
+        </div>
+      </div>
+      <!--right side (pie chart)-->
+      <div class="overview-right">
+        <div class="pie-container">
+          <p class="label">PASS / FAIL</p>
+          <svg id="pass-fail-chart"></svg>
+          <div class="pass-fail-details">
+            <p>
+              PASSED
+              <span id="passed-projects">-</span>
+            </p>
+            <p>
+              FAILED
+              <span id="failed-projects">-</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="graph-container">
+      <p class="label">XP PROGRESSION</p>
+      <svg id="xp-graph"></svg>
+    </section>
+
+    <!--user details popup-->
+    <div id="details-modal" class="details-modal" hidden>
+      <div class="details-popup">
+        <button id="close-details-button">✕</button>
+        <h2>STRUGGLER'S RECORD</h2>
+        <!--personal-->
+        
+        <section class="details-section">
+          <h3>PERSONAL</h3>
+          <div class="details-info">
+            <p>
+              <span class="info-label">CPR</span>
+              <span id="details-cpr">-</span>
+            </p>
+            <p>
+              <span class="info-label">GENDER</span>
+              <span id="details-gender">-</span>
+            </p>
+            <p>
+              <span class="info-label">DATE OF BIRTH</span>
+              <span id="details-birth-date">-</span>
+            </p>
+            <p>
+              <span class="info-label">COUNTRY OF BIRTH</span>
+              <span id="details-country">-</span>
+            </p>
+            <p>
+              <span class="info-label">PHONE NUMBER</span>
+              <span id="details-phone-number">-</span>
+            </p>
+          </div>
+        </section>
+
+        <!--education-->
+        <section class="details-section">
+          <h3>EDUCATION</h3>
+          <div class="details-info">
+            <p>
+              <span class="info-label">DEGREE</span>
+              <span id="details-degree">-</span>
+            </p>
+            <p>
+              <span class="info-label">QUALIFICATION</span>
+              <span id="details-qualification">-</span>
+            </p>
+            <p>
+              <span class="info-label">GRADUATION DATE</span>
+              <span id="details-graduation-date">-</span>
+            </p>
+          </div>
+
+          <!--employment-->
+          <h3>EMPLOYMENT</h3>
+          <div class="details-info">
+            <p>
+              <span class="info-label">OCCUPATION</span>
+              <span id="details-occupation">-</span>
+            </p>
+            <p>
+              <span class="info-label">JOB TITLE</span>
+              <span id="details-job-title">-</span>
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script type="module" src="js/profile.js"></script>
+  </body>
+</html>

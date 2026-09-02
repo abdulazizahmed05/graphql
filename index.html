@@ -3,10 +3,41 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="static/style.css" />
-    <title>GraphQL</title>
+    <link rel="stylesheet" href="static/login.css" />
+    <link rel="icon" href="static/assets/favicon.png" />
+    <title>GraphQL - Login</title>
   </head>
   <body>
-    <div id="app"></div>
+    <img
+      class="brand-logo"
+      src="static/assets/bos-logo.png"
+      alt="Brand of Sacrifice"
+    />
+    <div class="login-container">
+      <h1>THE REBOOT ECLIPSE</h1>
+      <p id="subtitle">TAKE HEED, STRUGGLER</p>
+      <form id="login-form">
+        <label for="username-email">USERNAME OR EMAIL</label>
+        <input
+          id="username-email"
+          type="text"
+          placeholder="SPEAK THY NAME"
+          maxlength="100"
+          required
+        />
+        <label for="password">PASSWORD</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="WHISPER THY SECRET"
+          maxlength="100"
+          required
+        />
+        <button type="submit" id="login-button">EMBRACE YOUR FATE</button>
+      </form>
+      <p id="error"></p>
+    </div>
+
+    <script type="module" src="js/auth.js"></script>
   </body>
 </html>
