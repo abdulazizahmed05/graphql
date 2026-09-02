@@ -1,5 +1,11 @@
 import { drawPassFailPieChart, drawXpProgressionGraph } from "./chart.js";
-import { formatDate, formatBytes, fetchData, isJWTExpired, logout } from "./utils.js";
+import {
+  formatDate,
+  formatBytes,
+  fetchData,
+  isJWTExpired,
+  logout,
+} from "./utils.js";
 
 if (isJWTExpired()) {
   logout();
@@ -107,7 +113,7 @@ async function loadUserLevel() {
 // get user's latest completion
 async function loadUserLatestCompletion() {
   const query = `{
-  progress(order_by: {updatedAt: desc}, limit: 1) {
+  progress(where: {grade: {_gte: 1}}, order_by: {updatedAt: desc}, limit: 1) {
     updatedAt
     object {
       name
