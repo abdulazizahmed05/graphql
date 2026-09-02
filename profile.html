@@ -8,13 +8,21 @@
     <title>GraphQL - Profile</title>
   </head>
   <body>
+    <audio id="background-audio" autoplay loop>
+      <source src="/static/assets/behelit.mp3" type="audio/mpeg" />
+    </audio>
     <!--navbar-->
     <header class="nav-bar">
       <div class="nav-user-logout">
         <span id="nav-username">-</span>
         <span id="nav-user-id">-</span>
       </div>
-      <button id="logout-button">ESCAPE</button>
+      <div class="nav-actions">
+        <button id="audio-button">
+          <img class="audio-icon" src="static/assets/volume.png" alt="volume" />
+        </button>
+        <button id="logout-button">ESCAPE</button>
+      </div>
     </header>
     <img
       class="brand-logo"

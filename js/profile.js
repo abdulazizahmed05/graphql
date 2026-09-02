@@ -36,15 +36,29 @@ const logoutButton = document.getElementById("logout-button");
 const viewDetailsButton = document.getElementById("view-details-button");
 const closeDetailsButton = document.getElementById("close-details-button");
 const detailsModal = document.getElementById("details-modal");
+const audio = document.getElementById("background-audio");
+const audioButton = document.getElementById("audio-button");
+audio.volume = 0.05;
 
 logoutButton.addEventListener("click", logout);
+
 viewDetailsButton.addEventListener("click", () => {
   detailsModal.hidden = false;
   document.body.classList.add("modal-open");
 });
+
 closeDetailsButton.addEventListener("click", () => {
   detailsModal.hidden = true;
   document.body.classList.remove("modal-open");
+});
+
+audioButton.addEventListener("click", () => {
+  audio.muted = !audio.muted;
+  if (audio.muted) {
+    audioButton.innerHTML = ` <img class="audio-icon" src="static/assets/mute.png" alt="mute" />`;
+  } else {
+    audioButton.innerHTML = ` <img class="audio-icon" src="static/assets/volume.png" alt="volume" />`;
+  }
 });
 
 // get basic user info
@@ -173,9 +187,9 @@ async function loadUserProjectInfo() {
       failed++;
     }
   });
-  drawPassFailPieChart(passed, failed);
   passedProjectsElement.textContent = passed;
   failedProjectsElement.textContent = failed;
+  drawPassFailPieChart(passed, failed);
 }
 
 // get xp amounts and times for xp progress chart

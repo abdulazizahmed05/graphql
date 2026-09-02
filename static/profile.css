@@ -48,6 +48,49 @@ body.modal-open {
   color: #8f8585;
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#audio-button {
+  padding: 5px;
+  background: linear-gradient(120deg, #b01111bc, #310303);
+  border: 1px solid #c22929;
+  border-radius: 6px;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
+}
+
+.audio-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  transition:
+    transform 0.2s,
+    filter 0.2s;
+}
+
+#audio-button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #b01111bc, #310303);
+  box-shadow: 0 0 18px rgba(180, 0, 0, 0.4);
+}
+
+#audio-button:hover .audio-icon {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 5px rgba(255, 80, 80, 0.5));
+}
+
+#audio-button:active {
+  transform: translateY(1px);
+}
+
 #logout-button {
   padding: 5px 20px;
   font-family: Impact;
