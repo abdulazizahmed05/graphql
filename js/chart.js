@@ -92,7 +92,7 @@ export function drawXpProgressionGraph(progression) {
   const lastDate = Math.max(...dates);
   const millisecondsPerDay = 1000 * 60 * 60 * 24;
   const totalDays = Math.max((lastDate - firstDate) / millisecondsPerDay, 1);
-  const pixelsPerDay = 10;
+  const pixelsPerDay = 9.5;
   const graphWidth = Math.max(900, totalDays * pixelsPerDay);
   const width = graphWidth + padding.left + padding.right;
   svg.setAttribute("width", width);
@@ -178,7 +178,7 @@ export function drawXpProgressionGraph(progression) {
     circle.setAttribute("stroke", "#e9dddd");
     circle.setAttribute("stroke-width", "1.5");
     circle.style.cursor = "pointer";
-
+    const sign = point.xp >= 0 ? "+" : "";
     // apply tooltip to hovering over points
     circle.addEventListener("mouseenter", () => {
       circle.setAttribute("r", 7);
@@ -186,7 +186,7 @@ export function drawXpProgressionGraph(progression) {
       tooltip.style.display = "block";
       tooltipName.textContent = point.name;
       tooltipType.textContent = point.type;
-      tooltipAmount.textContent = `+${formatXp(point.xp)} XP`;
+      tooltipAmount.textContent = `${sign}${formatXp(point.xp)} XP`;
       tooltipTotal.textContent = `TOTAL: ${formatXp(point.totalXp)} XP`;
       tooltipDate.textContent = point.date;
     });
@@ -259,7 +259,7 @@ export function drawXpProgressionGraph(progression) {
   document.body.appendChild(tooltip);
   // Move tooltip with mouse
   svg.addEventListener("mousemove", (event) => {
-    tooltip.style.left = `${event.clientX + 15}px`;
-    tooltip.style.top = `${event.clientY - 100}px`;
+    tooltip.style.left = `${event.clientX}px`;
+    tooltip.style.top = `${event.clientY - 130}px`;
   });
 }

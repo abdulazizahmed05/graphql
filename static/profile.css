@@ -372,6 +372,13 @@ body.modal-open {
   overflow-y: hidden;
 }
 
+.graph-scroll {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-top: 10px;
+}
+
 #xp-graph {
   display: block;
   height: 400px;
