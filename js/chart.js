@@ -259,7 +259,7 @@ export function drawXpProgressionGraph(progression) {
   document.body.appendChild(tooltip);
   // Move tooltip with mouse
   svg.addEventListener("mousemove", (event) => {
-    tooltip.style.left = `${event.clientX}px`;
+    tooltip.style.left = `${event.clientX - 100}px`;
     tooltip.style.top = `${event.clientY - 130}px`;
   });
 }

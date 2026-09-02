@@ -101,7 +101,11 @@ async function loadUserInfo() {
 // get current level for user
 async function loadUserLevel() {
   const query = `{
-  transaction(where: {type: {_eq: "level"}}, order_by: {amount: desc}, limit: 1) {
+  transaction(
+    where: {type: {_eq: "level"}, object: {type: {_eq: "project"}}}
+    order_by: {amount: desc}
+    limit: 1
+  ) {
     amount
   }
 }`;
