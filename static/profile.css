@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #b01111bc #310303;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -43,7 +48,6 @@ body.modal-open {
 
 #nav-user-id {
   font-family: Impact;
-  margin-top: 1.5px;
   font-size: 0.9rem;
   color: #8f8585;
 }
@@ -145,7 +149,7 @@ body.modal-open {
 
 .profile-title p {
   margin: 10px 0 30px;
-  font-family: fantasy;
+  font-family: Impact;
   font-size: clamp(0.9rem, 2vw, 1.2rem);
   letter-spacing: 1px;
   color: #a89b9b;
@@ -154,7 +158,7 @@ body.modal-open {
 .identification-container,
 .overview-container,
 .graph-container {
-  width: min(750px, 90%);
+  width: min(1000px, 90%);
   margin-left: auto;
   margin-right: auto;
   border: 1px solid rgba(150, 20, 20, 0.2);
@@ -189,7 +193,7 @@ body.modal-open {
 .name-container h2 {
   margin: 0;
   text-transform: uppercase;
-  font-family: fantasy;
+  font-family: Impact;
   font-size: clamp(1.8rem, 2.5vw, 3rem);
   letter-spacing: 1.5px;
   color: #e9dddd;
@@ -222,7 +226,7 @@ body.modal-open {
 
 #view-details-button {
   margin-top: 5px;
-  font-family: fantasy;
+  font-family: Impact;
   font-size: 1rem;
   letter-spacing: 1.5px;
   color: #e9dddd84;
@@ -251,23 +255,21 @@ body.modal-open {
 #latest-completion-name {
   font-size: 1.3rem;
   text-transform: uppercase;
-  font-family: fantasy;
+  font-family: Impact;
   color: #9b1717;
 }
 
 #latest-completion-type,
 #latest-completion-date {
   text-transform: uppercase;
-  font-family: fantasy;
+  font-family: Impact;
   color: #e9dddd84;
 }
 
 .overview-container {
   display: grid;
   grid-template-columns: 0.5fr 1fr;
-  gap: 30px;
-  padding: 30px;
-  margin-bottom: 30px;
+  gap: 25px;
 }
 
 .overview-left {
@@ -276,7 +278,15 @@ body.modal-open {
   gap: 12.5px;
 }
 
+.overview-left .stat-container {
+  flex: 1;
+}
+
 .stat-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   width: 100%;
   padding: 25px;
@@ -287,7 +297,7 @@ body.modal-open {
 
 .stat-container h2 {
   margin: 10px 0 0;
-  font-family: fantasy;
+  font-family: Impact;
   font-size: 2rem;
   color: #9b1717;
 }
@@ -295,7 +305,6 @@ body.modal-open {
 .audit-details {
   display: flex;
   gap: 25px;
-  justify-content: center;
   margin-top: 20px;
 }
 
@@ -311,7 +320,7 @@ body.modal-open {
 
 .audit-details span {
   font-size: 1.2rem;
-  font-family: fantasy;
+  font-family: Impact;
   color: #e9dddd;
 }
 
@@ -352,20 +361,21 @@ body.modal-open {
 
 .pass-fail-details span {
   font-size: 1.2rem;
-  font-family: fantasy;
+  font-family: Impact;
   color: #e9dddd;
 }
 
 .graph-container {
   padding: 30px;
   margin-bottom: 50px;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 #xp-graph {
   display: block;
-  width: 100%;
-  height: auto;
-  min-height: 300px;
+  height: 400px;
+  min-width: 1000px;
   margin-top: 20px;
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(150, 20, 20, 0.15);
@@ -389,7 +399,7 @@ body.modal-open {
 
 .details-popup {
   position: relative;
-  width: min(750px, 100%);
+  width: min(1000px, 100%);
   max-height: 90vh;
   overflow-y: auto;
   padding: 35px;
@@ -442,9 +452,10 @@ body.modal-open {
 }
 
 .details-info p {
+  text-transform: uppercase;
   display: flex;
   flex-direction: column;
-  font-family: fantasy;
+  font-family: Impact;
   gap: 5px;
   margin: 0;
 }

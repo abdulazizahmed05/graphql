@@ -24,7 +24,7 @@ export async function fetchData(query) {
 }
 
 // formatting bytes helper
-export function formatBytes(bytes) {
+export function formatBytes(bytes, decimals = 2) {
   if (bytes === 0) {
     return "0 B";
   }
@@ -32,7 +32,7 @@ export function formatBytes(bytes) {
   const index = Math.floor(Math.log(bytes) / Math.log(1000));
   const value = bytes / Math.pow(1000, index);
   const truncatedValue = Math.floor(value * 100) / 100;
-  return `${truncatedValue.toFixed(2)} ${units[index]}`;
+  return `${truncatedValue.toFixed(decimals)} ${units[index]}`;
 }
 
 // logout helper
@@ -64,3 +64,19 @@ export function showError(errorMessage, message) {
     errorMessage.textContent = "";
   }, 5000);
 }
+
+// formatting date
+export function formatDate(dateString) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "short",
+    year: "2-digit",
+  });
+}
+
+// formatting xp
+export function formatXp(value) {
+  return Math.round(value).toLocaleString();
+}
+

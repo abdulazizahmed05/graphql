@@ -1,5 +1,5 @@
 import { drawPassFailPieChart, drawXpProgressionGraph } from "./chart.js";
-import { formatBytes, fetchData, isJWTExpired, logout } from "./utils.js";
+import { formatDate, formatBytes, fetchData, isJWTExpired, logout } from "./utils.js";
 
 if (isJWTExpired()) {
   logout();
@@ -82,7 +82,7 @@ async function loadUserInfo() {
   // user details
   userCPR.textContent = userAttrs.CPRnumber;
   userGender.textContent = userAttrs.genders;
-  userDob.textContent = userAttrs.dateOfBirth.split("T")[0];
+  userDob.textContent = formatDate(userAttrs.dateOfBirth.split("T")[0]);
   userCob.textContent = userAttrs.countryOfBirth;
   userPhone.textContent = userAttrs.PhoneNumber;
   userDegree.textContent = userAttrs.Degree;
@@ -117,7 +117,7 @@ async function loadUserLatestCompletion() {
 }`;
   const res = await fetchData(query);
   const progress = res.data.progress[0];
-  latestDateElement.textContent = progress.updatedAt.split("T")[0];
+  latestDateElement.textContent = formatDate(progress.updatedAt.split("T")[0]);
   latestNameElement.textContent = progress.object.name;
   latestTypeElement.textContent = progress.object.type;
 }
@@ -163,7 +163,7 @@ async function loadUserTotalXp() {
   const totalXp = transactions.reduce((total, transaction) => {
     return total + transaction.amount;
   }, 0);
-  totalXpElement.textContent = formatBytes(totalXp);
+  totalXpElement.textContent = formatBytes(totalXp, 0);
 }
 
 // get passed + failed projects for chart
