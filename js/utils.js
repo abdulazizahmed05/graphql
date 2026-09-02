@@ -16,6 +16,12 @@ export async function fetchData(query) {
       }),
     });
     const data = await res.json();
+    // API rejected the token
+    if (!res.ok || data.errors) {
+      console.error("Authentication/API error:", data);
+      logout();
+      return null;
+    }
     return data;
   } catch (err) {
     console.error("Fetch failed:", err);
@@ -79,4 +85,3 @@ export function formatDate(dateString) {
 export function formatXp(value) {
   return Math.round(value).toLocaleString();
 }
-
