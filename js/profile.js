@@ -80,6 +80,10 @@ async function loadUserInfo() {
 }`;
   const res = await fetchData(query);
   const userData = res.data.user[0];
+  if (!userData) {
+    console.error("No user information found");
+    return;
+  }
   const userAttrs = userData.attrs;
   // user info
   usernameElement.textContent = userData.login;
@@ -111,6 +115,10 @@ async function loadUserLevel() {
 }`;
   const res = await fetchData(query);
   const level = res.data.transaction[0];
+  if (!level) {
+    console.error("No user level found");
+    return;
+  }
   levelElement.textContent = level.amount;
 }
 
@@ -127,6 +135,10 @@ async function loadUserLatestCompletion() {
 }`;
   const res = await fetchData(query);
   const progress = res.data.progress[0];
+  if (!progress) {
+    console.error("No latest completion found");
+    return;
+  }
   latestDateElement.textContent = formatDate(progress.updatedAt.split("T")[0]);
   latestNameElement.textContent = progress.object.name;
   latestTypeElement.textContent = progress.object.type;
@@ -143,6 +155,10 @@ async function loadUserAuditInfo() {
 }`;
   const res = await fetchData(query);
   const user = res.data.user[0];
+  if (!user) {
+    console.error("No audit details found");
+    return;
+  }
   auditRatioElement.textContent = user.auditRatio.toFixed(1);
   auditsDoneElement.textContent = formatBytes(user.totalUp);
   auditsReceivedElement.textContent = formatBytes(user.totalDown);
@@ -156,7 +172,12 @@ async function loadUserTotalXp() {
   }
 }`;
   const start = await fetchData(query1);
-  const goReloadedDate = start.data.transaction[0].createdAt;
+  const firstTransaction = start.data.transaction[0];
+  if (!firstTransaction) {
+    console.error("Could not find go-reloaded transaction");
+    return;
+  }
+  const goReloadedDate = firstTransaction.createdAt;
   const query2 = `{
   transaction(
     where: {type: {_eq: "xp"}, createdAt: {_gte: "${goReloadedDate}"},
@@ -210,7 +231,12 @@ async function loadUserXpProgression() {
   }
 }`;
   const start = await fetchData(query1);
-  const goReloadedDate = start.data.transaction[0].createdAt;
+  const firstTransaction = start.data.transaction[0];
+  if (!firstTransaction) {
+    console.error("Could not find go-reloaded transaction");
+    return;
+  }
+  const goReloadedDate = firstTransaction.createdAt;
   const query2 = `{
   transaction(
     where: {type: {_eq: "xp"}, createdAt: {_gte: "${goReloadedDate}"},
