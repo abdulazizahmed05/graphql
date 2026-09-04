@@ -128,6 +128,17 @@ body.modal-open {
   margin: 40px auto 20px;
   object-fit: contain;
   filter: drop-shadow(0 0 12px rgba(170, 15, 15, 0.65));
+  animation: auraPulse 4s ease-in-out infinite;
+}
+
+@keyframes auraPulse {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 10px rgba(170, 15, 15, 0.45));
+  }
+  50% {
+    filter: drop-shadow(0 0 20px rgba(170, 15, 15, 0.9));
+  }
 }
 
 .profile-title {
